@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coyote Ledgers — CPA • Big Bear Lake</title>
+  <meta name="description" content="Coyote Ledgers is a warm, local CPA practice serving Big Bear Lake and surrounding mountain communities. Individual & small‑business tax returns, bookkeeping, and advisory services." />
+
+  <!--
+    SIMPLE, EASY‑TO‑EDIT SITE
+    ---------------------------------------------
+    • Single HTML file (no frameworks)
+    • Plain CSS + a tiny bit of vanilla JS
+    • Replace placeholders: phone, email, address, license #
+  -->
+
+  <style>
+    /* ====== COLOR PALETTE (edit these like a paint box) ====== */
+    :root{
+      --pine: #1f4d3a;        /* deep forest green */
+      --rust: #8b3a2f;        /* rustic red/brown */
+      --beige: #efe6d9;       /* warm parchment */
+      --cream: #f9f5ee;       /* light background */
+      --ink: #222222;         /* dark text */
+      --stone: #5a5a5a;       /* muted gray */
+      --white: #ffffff;
+      --shadow: 0 10px 25px rgba(0,0,0,.08);
+    }
+
+    /* ====== BASE ====== */
+    html,body{margin:0;padding:0;background:var(--cream);color:var(--ink);font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";}
+    img{max-width:100%;display:block}
+    a{color:var(--pine);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1100px;margin:auto;padding:0 1rem}
+    .btn{display:inline-block;background:var(--pine);color:var(--white);padding:.9rem 1.25rem;border-radius:.6rem;box-shadow:var(--shadow);font-weight:600}
+    .btn:hover{filter:brightness(0.95)}
+    .tag{display:inline-block;background:var(--beige);color:var(--ink);padding:.25rem .6rem;border-radius:.4rem;border:1px solid #e4dacb;font-size:.9rem}
+    .card{background:var(--white);border:1px solid #eee;border-radius:1rem;box-shadow:var(--shadow)}
+
+    /* ====== HEADER / NAV ====== */
+    header{position:sticky;top:0;z-index:100;background:var(--cream);border-bottom:1px solid #eee}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:.75rem 0}
+    .brand{display:flex;align-items:center;gap:.65rem;font-weight:800;letter-spacing:.5px}
+    .brand svg{width:34px;height:34px}
+    nav ul{display:flex;gap:1rem;list-style:none;margin:0;padding:0}
+    nav a{padding:.5rem .6rem;border-radius:.5rem}
+    nav a:hover{background:var(--beige)}
+    .menu-toggle{display:none;background:var(--pine);color:#fff;border:none;border-radius:.5rem;padding:.5rem .7rem}
+
+    /* ====== HERO ====== */
+    .hero{position:relative;isolation:isolate;background:var(--pine);color:#fff}
+    .hero::before{content:"";position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=60') center/cover no-repeat;opacity:.35;z-index:-1}
+    .hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;padding:4rem 0}
+    .hero h1{font-size:clamp(2rem, 3.5vw, 3rem);margin:.25rem 0}
+    .hero p{font-size:1.1rem;line-height:1.6}
+    .badges{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}
+
+    /* ====== SECTIONS ====== */
+    section{padding:3.2rem 0}
+    h2.section-title{font-size:clamp(1.6rem,2.5vw,2rem);margin:0 0 1.2rem}
+    .subtle{color:var(--stone)}
+
+    /* Services Grid */
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .service{padding:1.2rem}
+    .service h3{margin:.4rem 0 .35rem}
+    .icon{width:40px;height:40px;color:var(--pine)}
+
+    /* About */
+    .about{display:grid;grid-template-columns:1.1fr .9fr;gap:1.5rem;align-items:center}
+    .about .photo{border-radius:1rem;overflow:hidden}
+
+    /* Testimonials */
+    .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .quote p{margin:.6rem 0 0}
+
+    /* Service Area */
+    .areas{display:flex;flex-wrap:wrap;gap:.5rem}
+
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:1.25rem;align-items:start}
+    form label{display:block;margin:.6rem 0 .25rem}
+    input, textarea{width:100%;padding:.75rem;border-radius:.6rem;border:1px solid #ddd;background:#fff}
+    textarea{min-height:130px}
+    .fine{font-size:.9rem;color:var(--stone)}
+
+    /* Footer */
+    footer{background:var(--pine);color:#fff;padding:2rem 0;margin-top:2rem}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1rem}
+    footer a{color:#fff}
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 900px){
+      .hero-inner, .about, .contact-grid{grid-template-columns:1fr}
+      .services{grid-template-columns:1fr 1fr}
+      .testimonials{grid-template-columns:1fr 1fr}
+      nav ul{display:none}
+      .menu-toggle{display:inline-block}
+    }
+    @media (max-width: 560px){
+      .services{grid-template-columns:1fr}
+      .testimonials{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip link for accessibility -->
+  <a href="#main" class="tag" style="position:absolute;left:-9999px;top:auto">Skip to content</a>
+
+  <!-- ====== HEADER ====== -->
+  <header role="banner">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Coyote Ledgers home">
+        <!-- Simple, editable SVG logo: mountains + ledger lines (easy shapes) -->
+        <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stop-color="#2b6f57"/>
+              <stop offset="100%" stop-color="#1f4d3a"/>
+            </linearGradient>
+          </defs>
+          <!-- mountains -->
+          <path d="M4 44 L22 20 L32 32 L42 20 L60 44 Z" fill="url(#g)"/>
+          <!-- ledger lines -->
+          <rect x="8" y="48" width="48" height="3" rx="1.5" fill="#8b3a2f"/>
+          <rect x="8" y="54" width="36" height="3" rx="1.5" fill="#8b3a2f"/>
+        </svg>
+        <span>Coyote Ledgers</span>
+      </a>
+
+      <button class="menu-toggle" id="menuButton" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+
+      <nav aria-label="Main navigation">
+        <ul id="desktopMenu">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- Mobile menu: inserted directly below header on small screens -->
+    <div class="container" id="mobileMenu" style="display:none;padding-bottom:.75rem">
+      <nav aria-label="Mobile navigation">
+        <ul style="list-style:none;display:grid;gap:.4rem;margin:0;padding:0">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ====== HERO ====== -->
+  <section class="hero" id="home" role="region" aria-label="Welcome">
+    <div class="container hero-inner">
+      <div>
+        <span class="tag">Big Bear Lake, CA</span>
+        <h1>Coyote Ledgers — Guiding You Through Taxes with Clarity & Care</h1>
+        <p>Friendly, local CPA services for individuals, small businesses, and seasonal rental owners. Straight talk, on‑time filings, and year‑round support.</p>
+        <div style="display:flex;gap:.6rem;margin-top:1rem">
+          <a class="btn" href="#contact">Schedule a Free Consultation</a>
+          <a class="btn" style="background:var(--rust)" href="mailto:hello@coyoteledgers.com?subject=Consultation%20Request">Email Us</a>
+        </div>
+        <div class="badges" aria-label="Highlights">
+          <span class="tag">Licensed CPA</span>
+          <span class="tag">10+ Years Experience</span>
+          <span class="tag">Virtual & In‑Person</span>
+          <span class="tag">Secure Document Transfer</span>
+        </div>
+      </div>
+      <div class="card" style="overflow:hidden">
+        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=60" alt="Warm desk with ledger and pine sprig for a rustic CPA feel" />
+      </div>
+    </div>
+  </section>
+
+  <main id="main">
+    <!-- ====== SERVICES ====== -->
+    <section id="services" class="container">
+      <h2 class="section-title">Services</h2>
+      <p class="subtle">Simple pricing, clear communication, and no surprise fees.</p>
+
+      <div class="services">
+        <article class="service card">
+          <div style="padding:1.2rem">
+            <!-- icon: ledger book -->
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6 3h9a3 3 0 0 1 3 3v14l-3-2-3 2-3-2-3 2V6a3 3 0 0 1 3-3Zm0 5h9v2H6V8Zm0 4h9v2H6v-2Z"/></svg>
+            <h3>Individual Tax Returns (1040)</h3>
+            <p>W‑2, 1099, investments, HSA, education credits, and more. Clear checklists and fast e‑file.</p>
+          </div>
+        </article>
+
+        <article class="service card">
+          <div style="padding:1.2rem">
+            <!-- icon: storefront -->
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 9h18l-1 11H4L3 9Zm2-5h14l2 5H3l2-5Zm3 9h2v5H8v-5Zm6 0h2v5h-2v-5Z"/></svg>
+            <h3>Small Business & Rental Returns</h3>
+            <p>Sole props, S‑corps, partnerships, and short‑term rentals. We help you stay compliant and organized.</p>
+          </div>
+        </article>
+
+        <article class="service card">
+          <div style="padding:1.2rem">
+            <!-- icon: compass/advisory -->
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 1 1 0 20a10 10 0 0 1 0-20Zm3.5 6.5l-3.2 7.7l-1.5-1.5l-1.5-1.5l7.7-3.2Z"/></svg>
+            <h3>Year‑Round Advisory</h3>
+            <p>Quarterly estimates, entity setup, basis tracking, depreciation planning, and simple bookkeeping.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="card" style="margin-top:1rem;padding:1rem 1.2rem">
+        <strong>Special focus:</strong> mountain trades & seasonal rentals • contractors • guides & outfitters • cafes • makers • wellness pros.
+      </div>
+    </section>
+
+    <!-- ====== ABOUT ====== -->
+    <section id="about" class="container">
+      <h2 class="section-title">About Coyote Ledgers</h2>
+      <div class="about">
+        <div class="photo">
+          <img src="https://images.unsplash.com/photo-1489365091240-6ebcfedf764e?auto=format&fit=crop&w=1200&q=60" alt="Pine forest trail near Big Bear Lake at golden hour" />
+        </div>
+        <div>
+          <p>Hi, I’m <strong>Sahara Carter, CPA</strong>. I started Coyote Ledgers to bring neighborly service and professional rigor to Big Bear’s tax needs. Think: clear explanations, tidy books, and returns you understand.</p>
+          <p>The name comes from the coyote—smart, adaptable, and a natural guide. That’s how I approach taxes: I lead you through the terrain, step by step.</p>
+          <ul>
+            <li>Licensed CPA • <em>California</em> (Add your license # here)</li>
+            <li>Remote or in‑person • Based in Big Bear Lake</li>
+            <li>Secure document portal and e‑signature options</li>
+          </ul>
+          <div style="margin-top:1rem"><a class="btn" href="#contact">Work with Me</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== TESTIMONIALS ====== -->
+    <section id="testimonials" class="container">
+      <h2 class="section-title">Client Reviews</h2>
+      <div class="testimonials">
+        <figure class="quote card" style="padding:1rem">
+          <figcaption class="tag">Local Contractor</figcaption>
+          <p>“Sahara made taxes the easiest they’ve ever been. Clear, calm, and on it.”</p>
+        </figure>
+        <figure class="quote card" style="padding:1rem">
+          <figcaption class="tag">Short‑Term Rental Owner</figcaption>
+          <p>“Great guidance on deductions and quarterly planning. Highly recommend.”</p>
+        </figure>
+        <figure class="quote card" style="padding:1rem">
+          <figcaption class="tag">Cafe Owner</figcaption>
+          <p>“We finally feel organized. Books are clean, filings are on time.”</p>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ====== SERVICE AREA ====== -->
+    <section class="container">
+      <h2 class="section-title">Proudly Serving Big Bear & the Mountain Communities</h2>
+      <p class="subtle">In‑person and remote service available.</p>
+      <div class="areas">
+        <span class="tag">Big Bear Lake</span>
+        <span class="tag">Big Bear City</span>
+        <span class="tag">Sugarloaf</span>
+        <span class="tag">Fawnskin</span>
+        <span class="tag">Running Springs</span>
+        <span class="tag">Lake Arrowhead</span>
+        <span class="tag">Lucerne Valley</span>
+      </div>
+    </section>
+
+    <!-- ====== CONTACT ====== -->
+    <section id="contact" class="container">
+      <h2 class="section-title">Contact</h2>
+      <div class="contact-grid">
+        <div class="card" style="padding:1rem">
+          <p><strong>Coyote Ledgers</strong><br/>
+            Big Bear Lake, CA (add address if desired)</p>
+          <p>Phone: <a href="tel:+1-760-555-0134">(760) 555‑0134</a><br/>
+             Email: <a href="mailto:hello@coyoteledgers.com">hello@coyoteledgers.com</a></p>
+          <p class="fine">Office hours: Mon–Fri 9:00–5:00 • Appointments available.</p>
+          <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+            <a class="btn" href="tel:+1-760-555-0134">Call Now</a>
+            <a class="btn" style="background:var(--rust)" href="mailto:hello@coyoteledgers.com?subject=Consultation%20Request">Email Us</a>
+          </div>
+        </div>
+
+        <div class="card" style="padding:1rem">
+          <!-- EASY mailto form (opens email client). For a real form, swap action for Formspree or your backend. -->
+          <form action="mailto:hello@coyoteledgers.com" method="post" enctype="text/plain">
+            <label for="name">Your Name</label>
+            <input id="name" name="Name" type="text" required />
+
+            <label for="email">Email</label>
+            <input id="email" name="Email" type="email" required />
+
+            <label for="message">How can I help?</label>
+            <textarea id="message" name="Message" placeholder="I need help with…" required></textarea>
+
+            <div style="margin-top:.8rem">
+              <button class="btn" type="submit">Send Message</button>
+              <span class="fine">Submitting opens your email app. Prefer a link? Email <a href="mailto:hello@coyoteledgers.com">hello@coyoteledgers.com</a>.</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====== FOOTER ====== -->
+  <footer role="contentinfo">
+    <div class="container footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom:.5rem">
+          <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false" style="width:28px;height:28px"><path d="M4 44 L22 20 L32 32 L42 20 L60 44 Z" fill="#2b6f57"/><rect x="8" y="48" width="48" height="3" rx="1.5" fill="#c76b5d"/><rect x="8" y="54" width="36" height="3" rx="1.5" fill="#c76b5d"/></svg>
+          <strong>Coyote Ledgers</strong>
+        </div>
+        <p class="fine">© <span id="year"></span> Coyote Ledgers. All rights reserved. This site provides general information and is not tax advice. Consult a CPA for your specific situation.</p>
+      </div>
+      <div>
+        <p><strong>Quick Links</strong></p>
+        <p><a href="#services">Services</a><br/>
+           <a href="#about">About</a><br/>
+           <a href="#testimonials">Reviews</a><br/>
+           <a href="#contact">Contact</a></p>
+      </div>
+      <div>
+        <p><strong>Connect</strong></p>
+        <p><a href="mailto:hello@coyoteledgers.com">Email</a><br/>
+           <a href="tel:+1-760-555-0134">Call</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Small JS for mobile menu + current year (kept simple)
+    const btn = document.getElementById('menuButton');
+    const mobile = document.getElementById('mobileMenu');
+    btn?.addEventListener('click', () => {
+      const isOpen = mobile.style.display === 'block';
+      mobile.style.display = isOpen ? 'none' : 'block';
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
