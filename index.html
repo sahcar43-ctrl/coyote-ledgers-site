@@ -257,42 +257,140 @@
     </section>
 
     <!-- ====== CONTACT ====== -->
-    <section id="contact" class="container">
-      <h2 class="section-title">Contact</h2>
-      <div class="contact-grid">
-        <div class="card" style="padding:1rem">
-          <p><strong>Coyote Ledgers</strong><br/>
-            Big Bear Lake, CA </p>
-          <p>Phone: <a href="tel:858-349-8847">(858) 349‑8847</a><br/>
-             Email: <a href="mailto:sahara@coyoteledgers.com">sahara@coyoteledgers.com</a></p>
-          <p class="fine">Office hours: Mon–Fri 8:00–5:00 • Appointments available.</p>
-          <div style="display:flex;gap:.6rem;flex-wrap:wrap">
-            <a class="btn" href="tel: 858-349-8847">Call Now</a>
-            <a class="btn" style="background:var(--rust)" href="mailto:sahara@coyoteledgers.com?subject=Consultation%20Request">Email Us</a>
-          </div>
-        </div>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Coyote Ledgers — Contact</title>
+    <style>
+      /* ---------- Global layout + overflow fixes ---------- */
+      html { box-sizing: border-box; }
+      *, *::before, *::after { box-sizing: inherit; }
+      body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif; line-height: 1.5; color: #192022; overflow-x: hidden; }
+      img, svg, video { max-width: 100%; height: auto; display: block; }
 
-        <div class="card" style="padding:1rem">
-          <!-- EASY mailto form (opens email client). For a real form, swap action for Formspree or your backend. -->
-          <form action="mailto:sahara@coyoteledgers.com" method="post" enctype="text/plain">
-            <label for="name">Your Name</label>
-            <input id="name" name="Name" type="text" required />
+      :root{
+        --bg: #f8faf9;
+        --card: #ffffff;
+        --ink: #1f2937;
+        --primary: #22543d; /* deep pine */
+        --accent: #8b5e34;  /* warm rustic */
+        --ring: rgba(34, 84, 61, .35);
+        --border: #e5e7eb;
+        --radius: 14px;
+        --content-w: 1024px;
+      }
 
-            <label for="email">Email</label>
-            <input id="email" name="Email" type="email" required />
+      .container { max-width: var(--content-w); margin-inline: auto; padding: clamp(16px, 3vw, 32px); }
+      .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(16px, 2.5vw, 28px); box-shadow: 0 6px 22px rgba(0,0,0,.04); }
 
-            <label for="message">How can I help?</label>
-            <textarea id="message" name="Message" placeholder="I need help with…" required></textarea>
+      h2 { margin: 0 0 8px; font-size: clamp(22px, 3.2vw, 32px); color: var(--primary); letter-spacing: .3px; }
+      p.lead { margin: 0 0 18px; color: #374151; }
 
-            <div style="margin-top:.8rem">
-              <button class="btn" type="submit">Send Message</button>
-              <span class="fine">Submitting opens your email app. Prefer a link? Email <a href="mailto:sahara@coyoteledgers.com">sahara@coyoteledgers.com</a>.</span>
+      /* ---------- Form grid + controls ---------- */
+      form.contact { display: grid; gap: 14px; }
+
+      /* two-up rows for name/email on wider screens */
+      .form-row { display: grid; grid-template-columns: 1fr; gap: 14px; }
+      @media (min-width: 640px){ .form-row { grid-template-columns: 1fr 1fr; } }
+
+      label { font-weight: 600; color: #25313a; font-size: 14px; }
+
+      input[type="text"], input[type="email"], input[type="tel"], textarea, select {
+        width: 100%; /* prevents “hanging off the side” */
+        display: block;
+        padding: 12px 14px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: #fff;
+        color: var(--ink);
+        outline: none;
+      }
+      textarea { min-height: 140px; resize: vertical; }
+
+      input:focus, textarea:focus, select:focus { border-color: var(--primary); box-shadow: 0 0 0 4px var(--ring); }
+
+      /* prevent any ancestor flex/grid weirdness from letting children overflow */
+      #contact, .contact-wrap { overflow-x: hidden; }
+
+      .help { font-size: 12px; color: #6b7280; }
+
+      button[type="submit"]{
+        appearance: none; -webkit-appearance: none;
+        border: 0; border-radius: 999px;
+        padding: 12px 18px; font-weight: 700;
+        background: linear-gradient(180deg, var(--primary), #123c2b);
+        color: #fff; cursor: pointer; width: fit-content;
+        box-shadow: 0 6px 16px rgba(18,60,43,.25);
+      }
+      button[type="submit"]:hover { transform: translateY(-1px); }
+      button[type="submit"]:active { transform: translateY(0); box-shadow: 0 4px 12px rgba(18,60,43,.25); }
+
+      /* optional: align this section nicely if embedded in your full page */
+      section#contact { background: var(--bg); }
+    </style>
+  </head>
+  <body>
+    <section id="contact">
+      <div class="container">
+        <div class="card contact-wrap">
+          <h2>Contact Coyote Ledgers</h2>
+          <p class="lead">Questions, a quick estimate, or want to book a consult? Send a note here and I’ll get back to you.</p>
+
+          <!--
+            HOW TO USE:
+            1) Replace the entire <section id="contact">…</section> in your current file with this block, OR
+            2) Copy the <style> rules into your site’s stylesheet and add the classes below to your existing form.
+
+            SUBMISSIONS:
+            GitHub Pages is static-only. To receive messages, use Formspree, Basin, Getform, or Netlify Forms.
+            Example below shows Formspree; replace YOUR-ID with your real endpoint.
+          -->
+
+          <form class="contact" action="https://formspree.io/f/YOUR-ID" method="POST">
+            <div class="form-row">
+              <div>
+                <label for="name">Your name</label>
+                <input id="name" name="name" type="text" placeholder="Sahara Watje" required />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="sahara@coyoteledgers.com" required />
+              </div>
             </div>
+
+            <div class="form-row">
+              <div>
+                <label for="phone">Phone (optional)</label>
+                <input id="phone" name="phone" type="tel" placeholder="(760) 555‑0123" />
+                <div class="help">Text or call works — whatever you prefer.</div>
+              </div>
+              <div>
+                <label for="topic">Topic</label>
+                <select id="topic" name="topic">
+                  <option>Individual tax (1040)</option>
+                  <option>Business tax (1120/1065)</option>
+                  <option>Bookkeeping & clean-up</option>
+                  <option>Tax planning consult</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="message">How can I help?</label>
+              <textarea id="message" name="message" placeholder="Share a little about your situation and ideal timing…" required></textarea>
+            </div>
+
+            <button type="submit">Send message</button>
           </form>
         </div>
       </div>
     </section>
-  </main>
+  </body>
+</html>
+
 
   <!-- ====== FOOTER ====== -->
   <footer role="contentinfo">
