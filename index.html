@@ -44,16 +44,32 @@
     .nav{display:flex;align-items:center;justify-content:space-between;padding:.75rem 0}
     .brand{display:flex;align-items:center;gap:.65rem;font-weight:800;letter-spacing:.5px}
     .brand svg{width:34px;height:34px}
-    /* apply Permanent Marker only to brand text */
+    /* Permanent Marker on brand text only */
     .brand span{font-family:'Permanent Marker',cursive;font-size:1.6rem}
     nav ul{display:flex;gap:1rem;list-style:none;margin:0;padding:0}
     nav a{padding:.5rem .6rem;border-radius:.5rem}
     nav a:hover{background:var(--beige)}
     .menu-toggle{display:none;background:var(--pine);color:#fff;border:none;border-radius:.5rem;padding:.5rem .7rem}
 
-    /* ====== HERO ====== */
-    .hero{position:relative;isolation:isolate;background:var(--pine);color:#fff}
-    .hero::before{content:"";position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=60') center/cover no-repeat;opacity:.35;z-index:-1}
+    /* ====== HERO (edgier mountain look) ====== */
+    .hero{
+      position:relative;
+      isolation:isolate;
+      background:#0f1a17; /* deeper base so the overlay feels moodier */
+      color:#fff;
+    }
+    /* Layer a dark gradient over a moody mountain image, then blend/boost contrast */
+    .hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(10,20,17,.55), rgba(10,20,17,.75)),
+        url('https://source.unsplash.com/1600x900/?mountains,forest,storm,dark') center/cover no-repeat;
+      opacity:1;
+      mix-blend-mode:multiply;
+      filter: contrast(1.08) saturate(.95);
+      z-index:-1;
+    }
     .hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;padding:4rem 0}
     .hero h1{font-size:clamp(2rem, 3.5vw, 3rem);margin:.25rem 0;font-family:'Permanent Marker',cursive}
     .hero p{font-size:1.1rem;line-height:1.6}
@@ -70,7 +86,14 @@
     .icon{width:40px;height:40px;color:var(--pine)}
 
     .about{display:grid;grid-template-columns:1.1fr .9fr;gap:1.5rem;align-items:center}
-    .about .photo{border-radius:1rem;overflow:hidden}
+    .about .photo{
+      border-radius:1rem; overflow:hidden;
+      background:
+        linear-gradient(180deg, rgba(16,28,24,.35), rgba(16,28,24,.65)),
+        url('https://source.unsplash.com/1000x800/?pine,rock,texture,mountain') center/cover no-repeat;
+      height: 280px;
+      box-shadow: var(--shadow);
+    }
 
     .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
     .quote p{margin:.6rem 0 0}
@@ -165,7 +188,7 @@
         </div>
       </div>
       <div class="card" style="overflow:hidden">
-        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=60" alt="Warm desk with ledger and pine sprig for a rustic CPA feel" />
+        <img src="https://source.unsplash.com/1200x800/?alpine,mountain,grit" alt="Rugged alpine ridgeline with moody atmosphere" />
       </div>
     </div>
   </section>
@@ -183,12 +206,14 @@
             <p>W-2, 1099, investments, HSA, education credits, and more. Clear checklists and fast e-file.</p>
           </div>
         </article>
+
         <article class="service card">
           <div style="padding:1.2rem">
             <h3>Small Business & Rental Returns</h3>
             <p>Sole props, S-corps, partnerships, and short-term rentals. We help you stay compliant and organized.</p>
           </div>
         </article>
+
         <article class="service card">
           <div style="padding:1.2rem">
             <h3>Year-Round Advisory</h3>
@@ -196,6 +221,7 @@
           </div>
         </article>
       </div>
+
       <div class="card" style="margin-top:1rem;padding:1rem 1.2rem">
         <strong>Special focus:</strong> mountain trades • real estate investors • local business • independent contractors • remote work.
       </div>
@@ -205,7 +231,7 @@
     <section id="about" class="container">
       <h2 class="section-title">About Coyote Ledgers</h2>
       <div class="about">
-        <div class="photo"></div>
+        <div class="photo" aria-label="Moody pine and rock texture representing Big Bear terrain"></div>
         <div>
           <p>Hi! I’m <strong>Sahara Carter, CPA</strong>. I was born and raised right here in Big Bear. I value this community and look forward to working side by side with you.</p>
           <ul>
@@ -286,5 +312,7 @@
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
+</html>
+
 </html>
 
