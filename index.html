@@ -4,34 +4,32 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Coyote Ledgers</title>
-  <meta name="description" content="Coyote Ledgers is a local CPA practice serving Big Bear Lake and surrounding communities. Individual & small‑business tax returns and advisory services." />
+  <meta name="description" content="Coyote Ledgers is a local CPA practice serving Big Bear Lake and surrounding communities. Individual & small-business tax returns and advisory services." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 
-  <!--
-    SIMPLE, EASY‑TO‑EDIT SITE
-    ---------------------------------------------
-    • Single HTML file (no frameworks)
-    • Plain CSS + a tiny bit of vanilla JS
-    • Replace placeholders: phone, email, address, license #
-  -->
-
   <style>
-    /* ====== COLOR PALETTE (edit these like a paint box) ====== */
+    /* ====== COLOR PALETTE ====== */
     :root{
-      --pine: #1f4d3a;        /* deep forest green */
-      --rust: #8b3a2f;        /* rustic red/brown */
-      --beige: #efe6d9;       /* warm parchment */
-      --cream: #f9f5ee;       /* light background */
-      --ink: #222222;         /* dark text */
-      --stone: #5a5a5a;       /* muted gray */
+      --pine: #1f4d3a;
+      --rust: #8b3a2f;
+      --beige: #efe6d9;
+      --cream: #f9f5ee;
+      --ink: #222222;
+      --stone: #5a5a5a;
       --white: #ffffff;
       --shadow: 0 10px 25px rgba(0,0,0,.08);
     }
 
     /* ====== BASE ====== */
-    html,body{margin:0;padding:0;background:var(--cream);color:var(--ink);font-family: "Permanent Marker", cursive; gsystem-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";}
+    html,body{
+      margin:0;
+      padding:0;
+      background:var(--cream);
+      color:var(--ink);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji", sans-serif;
+    }
     img{max-width:100%;display:block}
     a{color:var(--pine);text-decoration:none}
     a:hover{text-decoration:underline}
@@ -46,6 +44,8 @@
     .nav{display:flex;align-items:center;justify-content:space-between;padding:.75rem 0}
     .brand{display:flex;align-items:center;gap:.65rem;font-weight:800;letter-spacing:.5px}
     .brand svg{width:34px;height:34px}
+    /* apply Permanent Marker only to brand text */
+    .brand span{font-family:'Permanent Marker',cursive;font-size:1.6rem}
     nav ul{display:flex;gap:1rem;list-style:none;margin:0;padding:0}
     nav a{padding:.5rem .6rem;border-radius:.5rem}
     nav a:hover{background:var(--beige)}
@@ -55,7 +55,7 @@
     .hero{position:relative;isolation:isolate;background:var(--pine);color:#fff}
     .hero::before{content:"";position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=60') center/cover no-repeat;opacity:.35;z-index:-1}
     .hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;padding:4rem 0}
-    .hero h1{font-size:clamp(2rem, 3.5vw, 3rem);margin:.25rem 0}
+    .hero h1{font-size:clamp(2rem, 3.5vw, 3rem);margin:.25rem 0;font-family:'Permanent Marker',cursive}
     .hero p{font-size:1.1rem;line-height:1.6}
     .badges{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}
 
@@ -64,31 +64,25 @@
     h2.section-title{font-size:clamp(1.6rem,2.5vw,2rem);margin:0 0 1.2rem}
     .subtle{color:var(--stone)}
 
-    /* Services Grid */
     .services{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
     .service{padding:1.2rem}
     .service h3{margin:.4rem 0 .35rem}
     .icon{width:40px;height:40px;color:var(--pine)}
 
-    /* About */
     .about{display:grid;grid-template-columns:1.1fr .9fr;gap:1.5rem;align-items:center}
     .about .photo{border-radius:1rem;overflow:hidden}
 
-    /* Testimonials */
     .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
     .quote p{margin:.6rem 0 0}
 
-    /* Service Area */
     .areas{display:flex;flex-wrap:wrap;gap:.5rem}
 
-    /* Contact */
     .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:1.25rem;align-items:start}
     form label{display:block;margin:.6rem 0 .25rem}
     input, textarea{width:100%;padding:.75rem;border-radius:.6rem;border:1px solid #ddd;background:#fff}
     textarea{min-height:130px}
     .fine{font-size:.9rem;color:var(--stone)}
 
-    /* Footer */
     footer{background:var(--pine);color:#fff;padding:2rem 0;margin-top:2rem}
     .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1rem}
     footer a{color:#fff}
@@ -109,14 +103,12 @@
   </style>
 </head>
 <body>
-  <!-- Skip link for accessibility -->
   <a href="#main" class="tag" style="position:absolute;left:-9999px;top:auto">Skip to content</a>
 
   <!-- ====== HEADER ====== -->
   <header role="banner">
     <div class="container nav">
       <a class="brand" href="#home" aria-label="Coyote Ledgers home">
-        <!-- Simple, editable SVG logo: mountains + ledger lines (easy shapes) -->
         <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
           <defs>
             <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
@@ -124,9 +116,7 @@
               <stop offset="100%" stop-color="#1f4d3a"/>
             </linearGradient>
           </defs>
-          <!-- mountains -->
           <path d="M4 44 L22 20 L32 32 L42 20 L60 44 Z" fill="url(#g)"/>
-          <!-- ledger lines -->
           <rect x="8" y="48" width="48" height="3" rx="1.5" fill="#8b3a2f"/>
           <rect x="8" y="54" width="36" height="3" rx="1.5" fill="#8b3a2f"/>
         </svg>
@@ -144,7 +134,6 @@
         </ul>
       </nav>
     </div>
-    <!-- Mobile menu: inserted directly below header on small screens -->
     <div class="container" id="mobileMenu" style="display:none;padding-bottom:.75rem">
       <nav aria-label="Mobile navigation">
         <ul style="list-style:none;display:grid;gap:.4rem;margin:0;padding:0">
@@ -190,32 +179,23 @@
       <div class="services">
         <article class="service card">
           <div style="padding:1.2rem">
-            <!-- icon: ledger book -->
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6 3h9a3 3 0 0 1 3 3v14l-3-2-3 2-3-2-3 2V6a3 3 0 0 1 3-3Zm0 5h9v2H6V8Zm0 4h9v2H6v-2Z"/></svg>
             <h3>Individual Tax Returns (1040)</h3>
-            <p>W‑2, 1099, investments, HSA, education credits, and more. Clear checklists and fast e‑file.</p>
+            <p>W-2, 1099, investments, HSA, education credits, and more. Clear checklists and fast e-file.</p>
           </div>
         </article>
-
         <article class="service card">
           <div style="padding:1.2rem">
-            <!-- icon: storefront -->
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 9h18l-1 11H4L3 9Zm2-5h14l2 5H3l2-5Zm3 9h2v5H8v-5Zm6 0h2v5h-2v-5Z"/></svg>
             <h3>Small Business & Rental Returns</h3>
-            <p>Sole props, S‑corps, partnerships, and short‑term rentals. We help you stay compliant and organized.</p>
+            <p>Sole props, S-corps, partnerships, and short-term rentals. We help you stay compliant and organized.</p>
           </div>
         </article>
-
         <article class="service card">
           <div style="padding:1.2rem">
-            <!-- icon: compass/advisory -->
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 1 1 0 20a10 10 0 0 1 0-20Zm3.5 6.5l-3.2 7.7l-1.5-1.5l-1.5-1.5l7.7-3.2Z"/></svg>
-            <h3>Year‑Round Advisory</h3>
+            <h3>Year-Round Advisory</h3>
             <p>Quarterly estimates, tax filing & extensions, tax planning, financial statement preparation, financial advisory.</p>
           </div>
         </article>
       </div>
-
       <div class="card" style="margin-top:1rem;padding:1rem 1.2rem">
         <strong>Special focus:</strong> mountain trades • real estate investors • local business • independent contractors • remote work.
       </div>
@@ -225,20 +205,18 @@
     <section id="about" class="container">
       <h2 class="section-title">About Coyote Ledgers</h2>
       <div class="about">
-        <div class="photo">
-        </div>
+        <div class="photo"></div>
         <div>
           <p>Hi! I’m <strong>Sahara Carter, CPA</strong>. I was born and raised right here in Big Bear. I value this community and look forward to working side by side with you.</p>
           <ul>
             <li>Licensed CPA • <em>California</em> (144519)</li>
-            <li>Remote or in‑person • Based in Big Bear Lake</li>
-            <li>Secure document portal and e‑signature options</li>
+            <li>Remote or in-person • Based in Big Bear Lake</li>
+            <li>Secure document portal and e-signature options</li>
           </ul>
           <div style="margin-top:1rem"><a class="btn" href="#contact">Work with Me</a></div>
         </div>
       </div>
     </section>
-
 
     <!-- ====== SERVICE AREA ====== -->
     <section class="container">
@@ -253,146 +231,24 @@
         <span class="tag">Lake Arrowhead</span>
         <span class="tag">Lucerne Valley</span>
         <span class="tag">Surrounding Areas (Remote)</span>
-        
-        
       </div>
     </section>
 
     <!-- ====== CONTACT ====== -->
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Coyote Ledgers — Contact</title>
-    <style>
-      /* ---------- Global layout + overflow fixes ---------- */
-      html { box-sizing: border-box; }
-      *, *::before, *::after { box-sizing: inherit; }
-      body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif; line-height: 1.5; color: #192022; overflow-x: hidden; }
-      img, svg, video { max-width: 100%; height: auto; display: block; }
-
-      :root{
-        --bg: #f8faf9;
-        --card: #ffffff;
-        --ink: #1f2937;
-        --primary: #22543d; /* deep pine */
-        --accent: #8b5e34;  /* warm rustic */
-        --ring: rgba(34, 84, 61, .35);
-        --border: #e5e7eb;
-        --radius: 14px;
-        --content-w: 1024px;
-      }
-
-      .container { max-width: var(--content-w); margin-inline: auto; padding: clamp(16px, 3vw, 32px); }
-      .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: clamp(16px, 2.5vw, 28px); box-shadow: 0 6px 22px rgba(0,0,0,.04); }
-
-      h2 { margin: 0 0 8px; font-size: clamp(22px, 3.2vw, 32px); color: var(--primary); letter-spacing: .3px; }
-      p.lead { margin: 0 0 18px; color: #374151; }
-
-      /* ---------- Form grid + controls ---------- */
-      form.contact { display: grid; gap: 14px; }
-
-      /* two-up rows for name/email on wider screens */
-      .form-row { display: grid; grid-template-columns: 1fr; gap: 14px; }
-      @media (min-width: 640px){ .form-row { grid-template-columns: 1fr 1fr; } }
-
-      label { font-weight: 600; color: #25313a; font-size: 14px; }
-
-      input[type="text"], input[type="email"], input[type="tel"], textarea, select {
-        width: 100%; /* prevents “hanging off the side” */
-        display: block;
-        padding: 12px 14px;
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        background: #fff;
-        color: var(--ink);
-        outline: none;
-      }
-      textarea { min-height: 140px; resize: vertical; }
-
-      input:focus, textarea:focus, select:focus { border-color: var(--primary); box-shadow: 0 0 0 4px var(--ring); }
-
-      /* prevent any ancestor flex/grid weirdness from letting children overflow */
-      #contact, .contact-wrap { overflow-x: hidden; }
-
-      .help { font-size: 12px; color: #6b7280; }
-
-      button[type="submit"]{
-        appearance: none; -webkit-appearance: none;
-        border: 0; border-radius: 999px;
-        padding: 12px 18px; font-weight: 700;
-        background: linear-gradient(180deg, var(--primary), #123c2b);
-        color: #fff; cursor: pointer; width: fit-content;
-        box-shadow: 0 6px 16px rgba(18,60,43,.25);
-      }
-      button[type="submit"]:hover { transform: translateY(-1px); }
-      button[type="submit"]:active { transform: translateY(0); box-shadow: 0 4px 12px rgba(18,60,43,.25); }
-
-      /* optional: align this section nicely if embedded in your full page */
-      section#contact { background: var(--bg); }
-    </style>
-  </head>
-  <body>
-    <section id="contact">
-      <div class="container">
-        <div class="card contact-wrap">
-          <h2>Contact Coyote Ledgers</h2>
-          <p class="lead">Questions, a quick estimate, or want to book a consult? Send a note here and I’ll get back to you.</p>
-
-          <!--
-            HOW TO USE:
-            1) Replace the entire <section id="contact">…</section> in your current file with this block, OR
-            2) Copy the <style> rules into your site’s stylesheet and add the classes below to your existing form.
-
-            SUBMISSIONS:
-            GitHub Pages is static-only. To receive messages, use Formspree, Basin, Getform, or Netlify Forms.
-            Example below shows Formspree; replace YOUR-ID with your real endpoint.
-          -->
-
-          <form class="contact" action="https://formspree.io/f/YOUR-ID" method="POST">
-            <div class="form-row">
-              <div>
-                <label for="name">Your name</label>
-                <input id="name" name="name" type="text" placeholder="Sahara Watje" required />
-              </div>
-              <div>
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="sahara@coyoteledgers.com" required />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div>
-                <label for="phone">Phone (optional)</label>
-                <input id="phone" name="phone" type="tel" placeholder="(760) 555‑0123" />
-                <div class="help">Text or call works — whatever you prefer.</div>
-              </div>
-              <div>
-                <label for="topic">Topic</label>
-                <select id="topic" name="topic">
-                  <option>Individual tax (1040)</option>
-                  <option>Business tax (1120/1065)</option>
-                  <option>Bookkeeping & clean-up</option>
-                  <option>Tax planning consult</option>
-                  <option>Other</option>
-                </select>
-              </div>
-            </div>
-
-            <div>
-              <label for="message">How can I help?</label>
-              <textarea id="message" name="message" placeholder="Share a little about your situation and ideal timing…" required></textarea>
-            </div>
-
-            <button type="submit">Send message</button>
-          </form>
-        </div>
-      </div>
+    <section id="contact" class="container">
+      <h2 class="section-title">Contact Coyote Ledgers</h2>
+      <p class="subtle">Questions, a quick estimate, or want to book a consult? Send a note here and I’ll get back to you.</p>
+      <form class="contact" action="https://formspree.io/f/YOUR-ID" method="POST">
+        <label for="name">Your name</label>
+        <input id="name" name="name" type="text" required />
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required />
+        <label for="message">How can I help?</label>
+        <textarea id="message" name="message" required></textarea>
+        <button type="submit">Send message</button>
+      </form>
     </section>
-  </body>
-</html>
-
+  </main>
 
   <!-- ====== FOOTER ====== -->
   <footer role="contentinfo">
@@ -420,7 +276,6 @@
   </footer>
 
   <script>
-    // Small JS for mobile menu + current year (kept simple)
     const btn = document.getElementById('menuButton');
     const mobile = document.getElementById('mobileMenu');
     btn?.addEventListener('click', () => {
@@ -432,3 +287,4 @@
   </script>
 </body>
 </html>
+
