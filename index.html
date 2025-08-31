@@ -44,27 +44,25 @@
     .nav{display:flex;align-items:center;justify-content:space-between;padding:.75rem 0}
     .brand{display:flex;align-items:center;gap:.65rem;font-weight:800;letter-spacing:.5px}
     .brand svg{width:34px;height:34px}
-    /* Permanent Marker on brand text only */
     .brand span{font-family:'Permanent Marker',cursive;font-size:1.6rem}
     nav ul{display:flex;gap:1rem;list-style:none;margin:0;padding:0}
     nav a{padding:.5rem .6rem;border-radius:.5rem}
     nav a:hover{background:var(--beige)}
     .menu-toggle{display:none;background:var(--pine);color:#fff;border:none;border-radius:.5rem;padding:.5rem .7rem}
 
-    /* ====== HERO (edgier mountain look) ====== */
+    /* ====== HERO (with fixed mountain photo) ====== */
     .hero{
       position:relative;
       isolation:isolate;
-      background:#0f1a17; /* deeper base so the overlay feels moodier */
+      background:#0f1a17;
       color:#fff;
     }
-    /* Layer a dark gradient over a moody mountain image, then blend/boost contrast */
     .hero::before{
       content:"";
       position:absolute; inset:0;
       background:
         linear-gradient(180deg, rgba(10,20,17,.55), rgba(10,20,17,.75)),
-        url('https://source.unsplash.com/1600x900/?mountains,forest,storm,dark') center/cover no-repeat;
+        url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
       opacity:1;
       mix-blend-mode:multiply;
       filter: contrast(1.08) saturate(.95);
@@ -90,7 +88,7 @@
       border-radius:1rem; overflow:hidden;
       background:
         linear-gradient(180deg, rgba(16,28,24,.35), rgba(16,28,24,.65)),
-        url('https://source.unsplash.com/1000x800/?pine,rock,texture,mountain') center/cover no-repeat;
+        url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=80') center/cover no-repeat;
       height: 280px;
       box-shadow: var(--shadow);
     }
@@ -110,6 +108,12 @@
     .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1rem}
     footer a{color:#fff}
 
+    details{border:1px solid #e8e1d6;border-radius:.75rem;background:#fff;padding:.85rem 1rem}
+    details + details{margin-top:.6rem}
+    details summary{font-weight:700;cursor:pointer;list-style:none}
+    details[open]{box-shadow:var(--shadow)}
+    details p{margin:.6rem 0 0}
+
     /* ====== RESPONSIVE ====== */
     @media (max-width: 900px){
       .hero-inner, .about, .contact-grid{grid-template-columns:1fr}
@@ -126,51 +130,27 @@
   </style>
 </head>
 <body>
-  <a href="#main" class="tag" style="position:absolute;left:-9999px;top:auto">Skip to content</a>
-
-  <!-- ====== HEADER ====== -->
+  <!-- HEADER -->
   <header role="banner">
     <div class="container nav">
-      <a class="brand" href="#home" aria-label="Coyote Ledgers home">
-        <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-          <defs>
-            <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
-              <stop offset="0%" stop-color="#2b6f57"/>
-              <stop offset="100%" stop-color="#1f4d3a"/>
-            </linearGradient>
-          </defs>
-          <path d="M4 44 L22 20 L32 32 L42 20 L60 44 Z" fill="url(#g)"/>
-          <rect x="8" y="48" width="48" height="3" rx="1.5" fill="#8b3a2f"/>
-          <rect x="8" y="54" width="36" height="3" rx="1.5" fill="#8b3a2f"/>
-        </svg>
+      <a class="brand" href="#home">
+        <svg viewBox="0 0 64 64"><path d="M4 44 L22 20 L32 32 L42 20 L60 44 Z" fill="#2b6f57"/><rect x="8" y="48" width="48" height="3" rx="1.5" fill="#8b3a2f"/><rect x="8" y="54" width="36" height="3" rx="1.5" fill="#8b3a2f"/></svg>
         <span>Coyote Ledgers</span>
       </a>
-
-      <button class="menu-toggle" id="menuButton" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
-
-      <nav aria-label="Main navigation">
+      <button class="menu-toggle" id="menuButton">Menu</button>
+      <nav>
         <ul id="desktopMenu">
           <li><a href="#services">Services</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#testimonials">Reviews</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-    <div class="container" id="mobileMenu" style="display:none;padding-bottom:.75rem">
-      <nav aria-label="Mobile navigation">
-        <ul style="list-style:none;display:grid;gap:.4rem;margin:0;padding:0">
-          <li><a href="#services">Services</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#wisp">WISP</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- ====== HERO ====== -->
-  <section class="hero" id="home" role="region" aria-label="Welcome">
+  <!-- HERO -->
+  <section class="hero" id="home">
     <div class="container hero-inner">
       <div>
         <span class="tag">Big Bear Lake, CA</span>
@@ -178,141 +158,66 @@
         <p>Tax and accounting for small business</p>
         <div style="display:flex;gap:.6rem;margin-top:1rem">
           <a class="btn" href="#contact">Schedule a Free Consultation</a>
-          <a class="btn" style="background:var(--rust)" href="mailto:sahara@coyoteledgers.com?subject=Consultation%20Request">Email Sahara</a>
-        </div>
-        <div class="badges" aria-label="Highlights">
-          <span class="tag">Licensed CPA</span>
-          <span class="tag">8+ Years Experience</span>
-          <span class="tag">Virtual & Convenient</span>
-          <span class="tag">Secure Document Transfer</span>
+          <a class="btn" style="background:var(--rust)" href="mailto:sahara@coyoteledgers.com">Email Sahara</a>
         </div>
       </div>
-      <div class="card" style="overflow:hidden">
-        <img src="https://source.unsplash.com/1200x800/?alpine,mountain,grit" alt="Rugged alpine ridgeline with moody atmosphere" />
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1500048993959-df0af9f9c9f3?auto=format&fit=crop&w=1200&q=80" alt="Mountain cliff with trees" />
       </div>
     </div>
   </section>
 
-  <main id="main">
-    <!-- ====== SERVICES ====== -->
-    <section id="services" class="container">
-      <h2 class="section-title">Services</h2>
-      <p class="subtle">Simple pricing, clear communication, and no surprise fees.</p>
-
-      <div class="services">
-        <article class="service card">
-          <div style="padding:1.2rem">
-            <h3>Individual Tax Returns (1040)</h3>
-            <p>W-2, 1099, investments, HSA, education credits, and more. Clear checklists and fast e-file.</p>
-          </div>
-        </article>
-
-        <article class="service card">
-          <div style="padding:1.2rem">
-            <h3>Small Business & Rental Returns</h3>
-            <p>Sole props, S-corps, partnerships, and short-term rentals. We help you stay compliant and organized.</p>
-          </div>
-        </article>
-
-        <article class="service card">
-          <div style="padding:1.2rem">
-            <h3>Year-Round Advisory</h3>
-            <p>Quarterly estimates, tax filing & extensions, tax planning, financial statement preparation, financial advisory.</p>
-          </div>
-        </article>
+  <!-- ABOUT -->
+  <section id="about" class="container">
+    <h2 class="section-title">About Coyote Ledgers</h2>
+    <div class="about">
+      <div class="photo"></div>
+      <div>
+        <p>Hi! I’m <strong>Sahara Carter, CPA</strong>. Born and raised in Big Bear. I look forward to working side by side with you.</p>
       </div>
+    </div>
+  </section>
 
-      <div class="card" style="margin-top:1rem;padding:1rem 1.2rem">
-        <strong>Special focus:</strong> mountain trades • real estate investors • local business • independent contractors • remote work.
-      </div>
-    </section>
+  <!-- WISP -->
+  <section id="wisp" class="container">
+    <h2 class="section-title">Written Information Security Plan (WISP)</h2>
+    <p class="subtle">Last reviewed: <span id="wisp-date"></span></p>
+    <div class="card" style="padding:1rem 1.2rem">
+      <details><summary>Scope</summary><p>Applies to all client data we handle.</p></details>
+      <details><summary>Safeguards</summary><p>Encryption, MFA, backups, vendor due-diligence.</p></details>
+      <details><summary>Contact</summary><p>Email <a href="mailto:sahara@coyoteledgers.com">sahara@coyoteledgers.com</a> for questions.</p></details>
+    </div>
+  </section>
 
-    <!-- ====== ABOUT ====== -->
-    <section id="about" class="container">
-      <h2 class="section-title"> </h2>
-      <div class="about">
-        <div class="photo" aria-label="Moody pine and rock texture representing Big Bear terrain"></div>
-        <div>
-          <p>Hi! I’m <strong>Sahara Carter, CPA</strong>. I was born and raised right here in Big Bear. I value this community and look forward to working side by side with you.</p>
-          <ul>
-            <li>Licensed CPA • <em>California</em> (144519)</li>
-            <li>Remote / Virtual • Based in Big Bear Lake</li>
-            <li>Secure document portal and e-signature options</li>
-          </ul>
-          <div style="margin-top:1rem"><a class="btn" href="#contact">Work with Me</a></div>
-        </div>
-      </div>
-    </section>
+  <!-- CONTACT -->
+  <section id="contact" class="container">
+    <h2 class="section-title">Contact Coyote Ledgers</h2>
+    <form class="contact" action="https://formspree.io/f/YOUR-ID" method="POST">
+      <label for="name">Your name</label>
+      <input id="name" name="name" type="text" required />
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required />
+      <label for="message">How can I help?</label>
+      <textarea id="message" name="message" required></textarea>
+      <button type="submit">Send message</button>
+    </form>
+  </section>
 
-    <!-- ====== SERVICE AREA ====== -->
-    <section class="container">
-      <h2 class="section-title">Proudly Serving Big Bear & the Mountain Communities</h2>
-      <p class="subtle"> </p>
-      <div class="areas">
-        <span class="tag">Big Bear Lake</span>
-        <span class="tag">Big Bear City</span>
-        <span class="tag">Sugarloaf</span>
-        <span class="tag">Fawnskin</span>
-        <span class="tag">Running Springs</span>
-        <span class="tag">Lake Arrowhead</span>
-        <span class="tag">Lucerne Valley</span>
-        <span class="tag">Surrounding Areas (Remote)</span>
-      </div>
-    </section>
-
-    <!-- ====== CONTACT ====== -->
-    <section id="contact" class="container">
-      <h2 class="section-title">Contact Us</h2>
-      <p class="subtle">Questions, a quick estimate, or want to book a consult? Send a note here and I’ll get back to you.</p>
-      <form class="contact" action="https://formspree.io/f/YOUR-ID" method="POST">
-        <label for="name">Your name</label>
-        <input id="name" name="name" type="text" required />
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" required />
-        <label for="message">How can I help?</label>
-        <textarea id="message" name="message" required></textarea>
-        <button type="submit">Send message</button>
-      </form>
-    </section>
-  </main>
-
-  <!-- ====== FOOTER ====== -->
-  <footer role="contentinfo">
+  <!-- FOOTER -->
+  <footer>
     <div class="container footer-grid">
-      <div>
-        <div class="brand" style="margin-bottom:.5rem">
-          <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false" style="width:28px;height:28px"><path d="M4 44 L22 20 L32 32 L42 20 L60 44 Z" fill="#2b6f57"/><rect x="8" y="48" width="48" height="3" rx="1.5" fill="#c76b5d"/><rect x="8" y="54" width="36" height="3" rx="1.5" fill="#c76b5d"/></svg>
-          <strong>Coyote Ledgers</strong>
-        </div>
-        <p class="fine">© <span id="year"></span> Coyote Ledgers. All rights reserved. This site provides general information and is not tax advice. Consult a professional for your specific situation.</p>
-      </div>
-      <div>
-        <p><strong>Quick Links</strong></p>
-        <p><a href="#services">Services</a><br/>
-           <a href="#about">About</a><br/>
-           <a href="#testimonials">Reviews</a><br/>
-           <a href="#contact">Contact</a></p>
-      </div>
-      <div>
-        <p><strong>Connect</strong></p>
-        <p><a href="mailto:sahara@coyoteledgers.com">Email</a><br/>
-           <a href="tel:+1-760-555-0134">Call</a></p>
-      </div>
+      <div><strong>Coyote Ledgers</strong><p class="fine">© <span id="year"></span> All rights reserved.</p></div>
+      <div><strong>Quick Links</strong><br><a href="#services">Services</a><br><a href="#about">About</a><br><a href="#wisp">WISP</a></div>
+      <div><strong>Connect</strong><br><a href="mailto:sahara@coyoteledgers.com">Email</a></div>
     </div>
   </footer>
 
   <script>
-    const btn = document.getElementById('menuButton');
-    const mobile = document.getElementById('mobileMenu');
-    btn?.addEventListener('click', () => {
-      const isOpen = mobile.style.display === 'block';
-      mobile.style.display = isOpen ? 'none' : 'block';
-      btn.setAttribute('aria-expanded', String(!isOpen));
-    });
     document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('wisp-date').textContent = new Date().toLocaleDateString();
+    const btn=document.getElementById('menuButton'),mobile=document.getElementById('mobileMenu');btn?.addEventListener('click',()=>{const o=mobile.style.display==="block";mobile.style.display=o?"none":"block";});
   </script>
 </body>
 </html>
 
-</html>
 
