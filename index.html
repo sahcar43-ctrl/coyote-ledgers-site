@@ -3,8 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Coyote Ledgers</title>
+  <title>California Tax Preparation &amp; Accounting | Coyote Ledgers</title>
   <meta name="description" content="Coyote Ledgers is a local CPA practice serving Big Bear Lake and surrounding communities. Individual & small-business tax returns and advisory services." />
+  <link rel="canonical" href="https://www.coyoteledgers.com/" />
+  <meta property="og:title" content="California Tax Preparation &amp; Accounting | Coyote Ledgers" />
+  <meta property="og:description" content="Individual and small-business tax preparation with Sahara Carter, CPA, of Coyote Ledgers in Big Bear Lake, California." />
+  <meta property="og:url" content="https://www.coyoteledgers.com/" />
+  <meta property="og:type" content="website" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "@id": "https://www.coyoteledgers.com/#organization", "name": "Coyote Ledgers", "url": "https://www.coyoteledgers.com/", "email": "sahara@coyoteledgers.com", "description": "CPA practice offering individual and small-business tax preparation and accounting.", "founder": {"@type": "Person", "name": "Sahara Carter", "jobTitle": "CPA"}}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
@@ -30,6 +36,9 @@
       color:var(--ink);
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji", sans-serif;
     }
+    *{box-sizing:border-box}
+    section{scroll-margin-top:6rem}
+    a:focus-visible,button:focus-visible{outline:3px solid var(--rust);outline-offset:4px}
     img{max-width:100%;display:block}
     a{color:var(--pine);text-decoration:none}
     a:hover{text-decoration:underline}
@@ -62,7 +71,7 @@
       position:absolute; inset:0;
       background:
         linear-gradient(180deg, rgba(10,20,17,.55), rgba(10,20,17,.75)),
-        url('https://source.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+        url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
       opacity:1;
       mix-blend-mode:multiply;
       filter: contrast(1.08) saturate(.95);
@@ -119,7 +128,10 @@
       .hero-inner, .about, .contact-grid{grid-template-columns:1fr}
       .services{grid-template-columns:1fr 1fr}
       .testimonials{grid-template-columns:1fr 1fr}
+      .nav{flex-wrap:wrap}
+      nav{width:100%}
       nav ul{display:none}
+      nav ul.is-open{display:flex;flex-wrap:wrap;padding:1rem 0}
       .menu-toggle{display:inline-block}
     }
     @media (max-width: 560px){
@@ -137,7 +149,7 @@
         <svg viewBox="0 0 64 64"><path d="M4 44 L22 20 L32 32 L42 20 L60 44 Z" fill="#2b6f57"/><rect x="8" y="48" width="48" height="3" rx="1.5" fill="#8b3a2f"/><rect x="8" y="54" width="36" height="3" rx="1.5" fill="#8b3a2f"/></svg>
         <span>Coyote Ledgers</span>
       </a>
-      <button class="menu-toggle" id="menuButton">Menu</button>
+      <button class="menu-toggle" id="menuButton" aria-controls="desktopMenu" aria-expanded="false" type="button">Menu</button>
       <nav>
         <ul id="desktopMenu">
           <li><a href="#services">Services</a></li>
@@ -154,8 +166,8 @@
     <div class="container hero-inner">
       <div>
         <span class="tag">Big Bear Lake, CA</span>
-        <h1>Coyote Ledgers</h1>
-        <p>Tax and accounting for small business</p>
+        <h1>California Tax Preparation &amp; Accounting</h1>
+        <p>Individual and small-business tax preparation with Sahara Carter, CPA. Based in Big Bear Lake, California.</p>
         <div style="display:flex;gap:.6rem;margin-top:1rem">
           <a class="btn" href="#contact">Schedule a Free Consultation</a>
           <a class="btn" style="background:var(--rust)" href="mailto:sahara@coyoteledgers.com">Email Sahara</a>
@@ -167,6 +179,7 @@
     </div>
   </section>
 
+<section id="services" class="container"><h2 class="section-title">Tax preparation services</h2><div class="services"><article class="card service"><h3><a href="/california-tax-preparation/">California tax preparation</a></h3><p>Individual and small-business tax preparation for California taxpayers.</p></article><article class="card service"><h3><a href="/individual-tax-preparation/">Individual tax preparation</a></h3><p>Discuss your income, filing needs, and documents with Sahara Carter, CPA.</p></article><article class="card service"><h3><a href="/small-business-tax-preparation/">Small-business tax preparation</a></h3><p>Tax preparation and accounting for small-business owners.</p></article></div></section>
   <!-- ABOUT -->
   <section id="about" class="container">
     <h2 class="section-title">About Coyote Ledgers</h2>
@@ -181,7 +194,7 @@
   <!-- WISP -->
   <section id="wisp" class="container">
     <h2 class="section-title">Written Information Security Plan (WISP)</h2>
-    <p class="subtle">Last reviewed: <span id="wisp-date"></span></p>
+
     <div class="card" style="padding:1rem 1.2rem">
       <details><summary>Scope</summary><p>Applies to all client data we handle.</p></details>
       <details><summary>Safeguards</summary><p>Encryption, MFA, backups, vendor due-diligence.</p></details>
@@ -192,15 +205,9 @@
   <!-- CONTACT -->
   <section id="contact" class="container">
     <h2 class="section-title">Contact Coyote Ledgers</h2>
-    <form class="contact" action="https://formspree.io/f/YOUR-ID" method="POST">
-      <label for="name">Your name</label>
-      <input id="name" name="name" type="text" required />
-      <label for="email">Email</label>
-      <input id="email" name="email" type="email" required />
-      <label for="message">How can I help?</label>
-      <textarea id="message" name="message" required></textarea>
-      <button type="submit">Send message</button>
-    </form>
+    <p>Email Sahara to discuss your tax preparation needs, service availability, and a quote.</p>
+    <p><a class="btn" href="mailto:sahara@coyoteledgers.com">Email Sahara</a></p>
+    <p class="fine">Please do not email Social Security numbers, tax documents, or other sensitive information. Ask how to share documents securely.</p>
   </section>
 
   <!-- FOOTER -->
@@ -214,8 +221,13 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-    document.getElementById('wisp-date').textContent = new Date().toLocaleDateString();
-    const btn=document.getElementById('menuButton'),mobile=document.getElementById('mobileMenu');btn?.addEventListener('click',()=>{const o=mobile.style.display==="block";mobile.style.display=o?"none":"block";});
+    const btn = document.getElementById('menuButton');
+    const menu = document.getElementById('desktopMenu');
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') !== 'true';
+      btn.setAttribute('aria-expanded', String(open));
+      menu.classList.toggle('is-open', open);
+    });
   </script>
 </body>
 </html>

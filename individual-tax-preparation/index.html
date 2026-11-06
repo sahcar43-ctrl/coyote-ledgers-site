@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Individual tax preparation | Coyote Ledgers</title><meta name="description" content="Discuss your income, filing needs, and documents with Sahara Carter, CPA."><link rel="canonical" href="https://www.coyoteledgers.com/individual-tax-preparation/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Individual tax preparation | Coyote Ledgers", "url": "https://www.coyoteledgers.com/individual-tax-preparation/", "description": "Discuss your income, filing needs, and documents with Sahara Carter, CPA.", "about": {"@id": "https://www.coyoteledgers.com/#organization"}}</script>  <style>
+    /* ====== COLOR PALETTE ====== */
+    :root{
+      --pine: #1f4d3a;
+      --rust: #8b3a2f;
+      --beige: #efe6d9;
+      --cream: #f9f5ee;
+      --ink: #222222;
+      --stone: #5a5a5a;
+      --white: #ffffff;
+      --shadow: 0 10px 25px rgba(0,0,0,.08);
+    }
+
+    /* ====== BASE ====== */
+    html,body{
+      margin:0;
+      padding:0;
+      background:var(--cream);
+      color:var(--ink);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji", sans-serif;
+    }
+    *{box-sizing:border-box}
+    section{scroll-margin-top:6rem}
+    a:focus-visible,button:focus-visible{outline:3px solid var(--rust);outline-offset:4px}
+    img{max-width:100%;display:block}
+    a{color:var(--pine);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1100px;margin:auto;padding:0 1rem}
+    .btn{display:inline-block;background:var(--pine);color:var(--white);padding:.9rem 1.25rem;border-radius:.6rem;box-shadow:var(--shadow);font-weight:600}
+    .btn:hover{filter:brightness(0.95)}
+    .tag{display:inline-block;background:var(--beige);color:var(--ink);padding:.25rem .6rem;border-radius:.4rem;border:1px solid #e4dacb;font-size:.9rem}
+    .card{background:var(--white);border:1px solid #eee;border-radius:1rem;box-shadow:var(--shadow)}
+
+    /* ====== HEADER / NAV ====== */
+    header{position:sticky;top:0;z-index:100;background:var(--cream);border-bottom:1px solid #eee}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:.75rem 0}
+    .brand{display:flex;align-items:center;gap:.65rem;font-weight:800;letter-spacing:.5px}
+    .brand svg{width:34px;height:34px}
+    .brand span{font-family:'Permanent Marker',cursive;font-size:1.6rem}
+    nav ul{display:flex;gap:1rem;list-style:none;margin:0;padding:0}
+    nav a{padding:.5rem .6rem;border-radius:.5rem}
+    nav a:hover{background:var(--beige)}
+    .menu-toggle{display:none;background:var(--pine);color:#fff;border:none;border-radius:.5rem;padding:.5rem .7rem}
+
+    /* ====== HERO (with fixed mountain photo) ====== */
+    .hero{
+      position:relative;
+      isolation:isolate;
+      background:#0f1a17;
+      color:#fff;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(10,20,17,.55), rgba(10,20,17,.75)),
+        url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      opacity:1;
+      mix-blend-mode:multiply;
+      filter: contrast(1.08) saturate(.95);
+      z-index:-1;
+    }
+    .hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;padding:4rem 0}
+    .hero h1{font-size:clamp(2rem, 3.5vw, 3rem);margin:.25rem 0;font-family:'Permanent Marker',cursive}
+    .hero p{font-size:1.1rem;line-height:1.6}
+    .badges{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}
+
+    /* ====== SECTIONS ====== */
+    section{padding:3.2rem 0}
+    h2.section-title{font-size:clamp(1.6rem,2.5vw,2rem);margin:0 0 1.2rem}
+    .subtle{color:var(--stone)}
+
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .service{padding:1.2rem}
+    .service h3{margin:.4rem 0 .35rem}
+    .icon{width:40px;height:40px;color:var(--pine)}
+
+    .about{display:grid;grid-template-columns:1.1fr .9fr;gap:1.5rem;align-items:center}
+    .about .photo{
+      border-radius:1rem; overflow:hidden;
+      background:
+        linear-gradient(180deg, rgba(16,28,24,.35), rgba(16,28,24,.65)),
+        url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=80') center/cover no-repeat;
+      height: 280px;
+      box-shadow: var(--shadow);
+    }
+
+    .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .quote p{margin:.6rem 0 0}
+
+    .areas{display:flex;flex-wrap:wrap;gap:.5rem}
+
+    .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:1.25rem;align-items:start}
+    form label{display:block;margin:.6rem 0 .25rem}
+    input, textarea{width:100%;padding:.75rem;border-radius:.6rem;border:1px solid #ddd;background:#fff}
+    textarea{min-height:130px}
+    .fine{font-size:.9rem;color:var(--stone)}
+
+    footer{background:var(--pine);color:#fff;padding:2rem 0;margin-top:2rem}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1rem}
+    footer a{color:#fff}
+
+    details{border:1px solid #e8e1d6;border-radius:.75rem;background:#fff;padding:.85rem 1rem}
+    details + details{margin-top:.6rem}
+    details summary{font-weight:700;cursor:pointer;list-style:none}
+    details[open]{box-shadow:var(--shadow)}
+    details p{margin:.6rem 0 0}
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 900px){
+      .hero-inner, .about, .contact-grid{grid-template-columns:1fr}
+      .services{grid-template-columns:1fr 1fr}
+      .testimonials{grid-template-columns:1fr 1fr}
+      .nav{flex-wrap:wrap}
+      nav{width:100%}
+      nav ul{display:none}
+      nav ul.is-open{display:flex;flex-wrap:wrap;padding:1rem 0}
+      .menu-toggle{display:inline-block}
+    }
+    @media (max-width: 560px){
+      .services{grid-template-columns:1fr}
+      .testimonials{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr}
+    }
+  </style></head>
+<body><header><div class="container nav"><a class="brand" href="/">Coyote Ledgers</a><a href="/#contact">Contact Sahara</a></div></header>
+<main class="container"><section><p><a href="/">Home</a> / Tax preparation</p><h1>Individual income tax preparation</h1><p>Work with Sahara Carter, CPA, to discuss preparation of your individual income tax return.</p><p>Start with an overview of your income sources and filing needs. Mention wages, investment income, rental income, or self-employment so we can confirm whether the engagement is a fit.</p>
+<h2>How to get started</h2><ol><li>Email a brief description of your tax preparation needs.</li><li>Discuss service availability, scope, pricing, and how to share documents securely.</li><li>Agree on the engagement before preparation begins.</li></ol>
+<p><a class="btn" href="mailto:sahara@coyoteledgers.com">Email Sahara</a></p><p>Please do not email tax documents or Social Security numbers.</p>
+<h2>Common questions</h2><details><summary>What does tax preparation cost?</summary><p>Contact Coyote Ledgers for a quote based on your return and the work required.</p></details><details><summary>Who will I work with?</summary><p>Sahara Carter, CPA, of Coyote Ledgers in Big Bear Lake, California.</p></details>
+<h2>Explore our services</h2><ul><li><a href="/california-tax-preparation/">California tax preparation</a></li><li><a href="/small-business-tax-preparation/">Small-business tax preparation</a></li></ul></section></main>
+<footer><div class="container">Coyote Ledgers · <a href="mailto:sahara@coyoteledgers.com">sahara@coyoteledgers.com</a></div></footer></body></html>
