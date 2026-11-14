@@ -10,7 +10,7 @@
   <meta property="og:description" content="Online tax preparation for individuals and small businesses throughout California. Work directly with a CPA from wherever you are." />
   <meta property="og:url" content="https://www.coyoteledgers.com/" />
   <meta property="og:type" content="website" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "@id": "https://www.coyoteledgers.com/#organization", "name": "Coyote Ledgers", "url": "https://www.coyoteledgers.com/", "email": "sahara@coyoteledgers.com", "description": "CPA practice offering individual and small-business tax preparation and accounting.", "founder": {"@type": "Person", "name": "Sahara Carter", "jobTitle": "CPA"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "@id": "https://www.coyoteledgers.com/#organization", "name": "Coyote Ledgers", "url": "https://www.coyoteledgers.com/", "email": "sahara@coyoteledgers.com", "description": "CPA practice offering individual and small-business tax preparation, accounting, and cash flow coaching.", "founder": {"@type": "Person", "name": "Sahara Carter", "jobTitle": "CPA"}}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
@@ -87,7 +87,7 @@
     h2.section-title{font-size:clamp(1.6rem,2.5vw,2rem);margin:0 0 1.2rem}
     .subtle{color:var(--stone)}
 
-    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
     .service{padding:1.2rem}
     .service h3{margin:.4rem 0 .35rem}
     .icon{width:40px;height:40px;color:var(--pine)}
@@ -153,6 +153,7 @@
       <nav>
         <ul id="desktopMenu">
           <li><a href="#services">Services</a></li>
+          <li><a href="/cash-flow-coaching/">Cash Flow Coaching</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#wisp">WISP</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -179,7 +180,23 @@
     </div>
   </section>
 
-<section id="services" class="container"><h2 class="section-title">Tax preparation services</h2><div class="services"><article class="card service"><h3><a href="/california-tax-preparation/">California tax preparation</a></h3><p>Individual and small-business tax preparation for California taxpayers.</p></article><article class="card service"><h3><a href="/individual-tax-preparation/">Individual tax preparation</a></h3><p>Discuss your income, filing needs, and documents with Sahara Carter, CPA.</p></article><article class="card service"><h3><a href="/small-business-tax-preparation/">Small-business tax preparation</a></h3><p>Tax preparation and accounting for small-business owners.</p></article></div></section>
+<section id="services" class="container">
+  <h2 class="section-title">Tax preparation &amp; cash flow services</h2>
+  <div class="services">
+    <article class="card service"><h3><a href="/california-tax-preparation/">California tax preparation</a></h3><p>Individual and small-business tax preparation for California taxpayers.</p></article>
+    <article class="card service"><h3><a href="/individual-tax-preparation/">Individual tax preparation</a></h3><p>Discuss your income, filing needs, and documents with Sahara Carter, CPA.</p></article>
+    <article class="card service"><h3><a href="/small-business-tax-preparation/">Small-business tax preparation</a></h3><p>Tax preparation and accounting for small-business owners.</p></article>
+    <article class="card service"><h3><a href="/cash-flow-coaching/">Cash flow coaching &amp; savings accountability</a></h3><p>Monthly spending reviews, practical savings targets, and goal tracking—with optional Monarch Money collaboration.</p></article>
+  </div>
+</section>
+<section id="cash-flow" class="container">
+  <div class="card" style="padding:clamp(1.2rem,3vw,2.3rem);background:var(--beige)">
+    <span class="tag">Beyond tax season</span>
+    <h2 class="section-title" style="margin:.7rem 0">Making money is one thing. Saving it is another.</h2>
+    <p style="max-width:740px;line-height:1.7">Get an honest look at where your money goes, set a savings goal that fits your life, and see your progress month by month. CPA-led support, without judgment or investment sales.</p>
+    <a class="btn" href="/cash-flow-coaching/">Explore cash flow coaching</a>
+  </div>
+</section>
   <!-- ABOUT -->
   <section id="about" class="container">
     <h2 class="section-title">About Coyote Ledgers</h2>
@@ -205,7 +222,7 @@
   <!-- CONTACT -->
   <section id="contact" class="container">
     <h2 class="section-title">Contact Coyote Ledgers</h2>
-    <p>Email Sahara to discuss your tax preparation needs, service availability, and a quote.</p>
+    <p>Email Sahara about tax preparation, cash flow coaching, service availability, and a quote.</p>
     <p><a class="btn" href="mailto:sahara@coyoteledgers.com">Email Sahara</a></p>
     <p class="fine">Please do not email Social Security numbers, tax documents, or other sensitive information. Ask how to share documents securely.</p>
   </section>
@@ -214,7 +231,7 @@
   <footer>
     <div class="container footer-grid">
       <div><strong>Coyote Ledgers</strong><p>Serving clients throughout California online.</p><p class="fine">© <span id="year"></span> All rights reserved.</p></div>
-      <div><strong>Quick Links</strong><br><a href="#services">Services</a><br><a href="#about">About</a><br><a href="#wisp">WISP</a></div>
+      <div><strong>Quick Links</strong><br><a href="#services">Services</a><br><a href="/cash-flow-coaching/">Cash Flow Coaching</a><br><a href="#about">About</a><br><a href="#wisp">WISP</a></div>
       <div><strong>Connect</strong><br><a href="mailto:sahara@coyoteledgers.com">Email</a></div>
     </div>
   </footer>
